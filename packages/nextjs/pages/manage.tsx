@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 
 const Manage: NextPage = () => {
-  return <>Manage</>;
+  return <>Manage</>;   
 };
 
 export default Manage;
