@@ -5,14 +5,20 @@ import {abi} from "../RedEnvelope.json";
 const Manage: NextPage = () => {
 
 const { data, isError, isLoading } = useContractRead({
-  address: '0xecb504d39723b0be0e3a9aa33d646642d1051ee1',
+  address: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
   abi: abi,
   functionName: 'getMyEnvelopes',
 })
 
+const envelopdata = data;
 
   
-  return <>Manage</>;   
+  return (
+    <>
+    <div>data</div>
+    
+    </>
+  )
 };
 
 export default Manage;
