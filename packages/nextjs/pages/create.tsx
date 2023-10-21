@@ -15,11 +15,13 @@ type ContractInputProps = {
 const Create: NextPage = () => {
   const [message, setMessage] = useState<string>("");
   const [name, setName] = useState<string>("");
+  const [address, setaddress] = useState<string>("");
   const [number, setNumber] = useState<string | bigint>("");
   const [amount, setAmount] = useState<string | bigint>("");
   const [tokenid, setTokenId] = useState<string | bigint>("");
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [isNFT, setIsNFT] = useState(false); // Toggle state
+  const [isToken, setIsToken] = useState(false); // Toggle state
 
   const handleDateChange = (date: Date | null) => {
     setSelectedDate(date);
@@ -38,6 +40,15 @@ const Create: NextPage = () => {
          
         />
         </div>
+        <div  className="mb-2 p-2 w-full">
+        <InputBase
+          name="address"
+          placeholder="address"
+          value={address}
+          onChange={setaddress}
+         
+        />
+        </div>
         <div className="mb-2 p-2 w-full">
         <InputBase
           name="message"
@@ -50,7 +61,16 @@ const Create: NextPage = () => {
           <label className="mb-1 block font-semibold">Select Type:</label>
           <select
             value={isNFT ? "NFT" : "Token"}
-            onChange={(e) => setIsNFT(e.target.value === "NFT")}
+            onChange={(e) => {
+              if (e.target.value === "NFT") {
+                setIsNFT(true);
+                setIsToken(false);
+              } else {
+                setIsNFT(false);
+                setIsToken(true);
+              }
+            }}
+
             className="w-full p-2 rounded border border-gray-300"
           >
             <option value="Token">Token</option>
@@ -79,7 +99,7 @@ const Create: NextPage = () => {
             />
           </div>
         )}
-        {!isNFT && (
+       {!isToken &&(
           <div className="mb-2 p-2 w-full">
             <IntegerInput
               value={tokenid}
@@ -89,7 +109,8 @@ const Create: NextPage = () => {
               placeholder="Token ID"
             />
           </div>
-        )}
+          )}
+        
         <DatePicker
           selected={selectedDate}
           onChange={handleDateChange}
