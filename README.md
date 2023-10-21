@@ -47,26 +47,6 @@ Before getting started, you need the following:
 * A compatible web3 wallet for creating and claiming red envelopes.
 * Node.js and npm (Node Package Manager) installed on your machine.
 
-**Installation**
-
-Clone the project repository to your local machine:
-
-```bash
-git clone https://github.com/yourusername/red-envelope-system.git
-```
-
-Navigate to the project directory:
-
-```bash
-cd red-envelope-system
-```
-
-Install the project dependencies:
-
-```bash
-npm install
-```
-
 **Usage**
 
 **Creating Red Envelopes**
